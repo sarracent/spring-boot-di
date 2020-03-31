@@ -1,0 +1,26 @@
+package com.sarracent.springboot.di.app;
+
+import com.sarracent.springboot.di.app.models.service.IServicio;
+import com.sarracent.springboot.di.app.models.service.MiServicio;
+import com.sarracent.springboot.di.app.models.service.MiServicioComplejo;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+
+//Cuando queremos inyectar clases de 3ros
+@Configuration
+public class AppConfig {
+
+
+    @Bean("miServicioSimple")
+    public IServicio registrarMiServicio(){
+        return new MiServicio();
+    }
+
+    @Primary
+    @Bean("miServicioComplejo")
+    public IServicio registrarMiServicioComplejo(){
+        return new MiServicioComplejo();
+    }
+
+}
